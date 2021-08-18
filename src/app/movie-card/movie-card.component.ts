@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MovieService } from '../movie.service';
+import { Movie, MovieResults } from '../movie-config';
 @Component({
-  selector: 'app-movie-card',
+  selector: 'movie-card',
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.less']
 })
 export class MovieCardComponent implements OnInit {
+  public movie! : Movie[];
 
-  constructor() { }
+  constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
+    this.getMoviesResponse();
   }
-
+  getMoviesResponse(): void {
+    this.movieService.getMovies().subscribe(
+      (movieResults : MovieResults) => {
+      this.movie = movieResults.results;
+  });
+}
 }

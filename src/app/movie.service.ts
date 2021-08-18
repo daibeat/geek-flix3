@@ -15,8 +15,13 @@ export class MovieService {
   constructor(private http: HttpClient) { }
 
    //Get a movie from movie database
-  getMovies(): Observable<MovieResults> {
-    return this.http.get<MovieResults>(`${this.baseUrl}/discover/movie${this.key}&sort_by=release_date.desc&primary_release_date.lte=2021-08-16&include_adult=false&include_video=false&page=1`)
-  }
+/*   getMovies(): Observable<MovieResults> {
+    return this.http.get<MovieResults>(`${this.baseUrl}/discover/movie${this.key}&sort_by=release_date.desc&primary_release_date.lte=2021-08-16&include_adult=false&include_video=false&page=1`);
+  } */
+    //Get a movie from movie database
+    getMovies(): Observable<MovieResults> {
+      const url = `${this.baseUrl}/discover/movie${this.key}&sort_by=release_date.desc&primary_release_date.lte=2021-08-16&include_adult=false&include_video=false&page=1`;
+      return this.http.get<MovieResults>(url);
+    }
     
 }

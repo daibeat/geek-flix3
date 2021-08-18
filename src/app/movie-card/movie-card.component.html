@@ -1,0 +1,11 @@
+<div class="grid">
+    <div *ngFor="let movieEl of movie">
+        <a routerLink="/movie-detail/{{ movieEl.id }}">
+            <img class="card-img" src="https://image.tmdb.org/t/p/w400/{{ movieEl.poster_path }}" alt="Card image" />
+        </a>
+        <div class="">
+            <h3 class="">{{ movieEl.title }}</h3>
+            <p class="">{{ movieEl.overview }}</p>
+        </div>
+    </div>
+</div>
