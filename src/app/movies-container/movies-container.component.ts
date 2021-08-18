@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../movie.service';
+import { Movie, MovieResults } from '../movie-config';
 
 @Component({
   selector: 'movies-container',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movies-container.component.less']
 })
 export class MoviesContainerComponent implements OnInit {
+    public movie! : Movie[];
 
-  constructor() { }
+  constructor(private movieService: MovieService) { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
+  
+  getMoviesResponse(): void {
+    this.movieService.getMovies().subscribe(
+      (movieResults : MovieResults) => {
+      this.movie = movieResults.results;
+  });
+}
 }

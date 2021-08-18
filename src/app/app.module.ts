@@ -8,6 +8,7 @@ import { MoviesContainerComponent } from './movies-container/movies-container.co
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieDescComponent } from './movie-desc/movie-desc.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MovieDescComponent } from './movie-desc/movie-desc.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
