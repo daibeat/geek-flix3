@@ -14,14 +14,15 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-   //Get a movie from movie database
-/*   getMovies(): Observable<MovieResults> {
+  //Get a movie from movie database
+  getMovies(): Observable<MovieResults> {
     return this.http.get<MovieResults>(`${this.baseUrl}/discover/movie${this.key}&sort_by=release_date.desc&primary_release_date.lte=2021-08-16&include_adult=false&include_video=false&page=1`);
-  } */
-    //Get a movie from movie database
-    getMovies(): Observable<MovieResults> {
-      const url = `${this.baseUrl}/discover/movie${this.key}&sort_by=release_date.desc&primary_release_date.lte=2021-08-16&include_adult=false&include_video=false&page=1`;
-      return this.http.get<MovieResults>(url);
+  }
+    //Get a movie id from movie database
+    getMovie(id: number): Observable<Movie> {
+       return this.http.get <Movie>(`${this.baseUrl}/movie/${id}${this.key}&language=en-US`);
     }
-    
+
+  
+
 }
