@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -9,6 +8,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieDescComponent } from './movie-desc/movie-desc.component';
 import { HttpClientModule} from '@angular/common/http';
+import { MovieSimilarComponent } from './movie-similar/movie-similar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { HttpClientModule} from '@angular/common/http';
     MoviesContainerComponent,
     MovieDetailComponent,
     MovieCardComponent,
-    MovieDescComponent
+    MovieDescComponent,
+    MovieSimilarComponent
   ],
   imports: [
     BrowserModule,

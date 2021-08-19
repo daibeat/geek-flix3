@@ -22,3 +22,11 @@ export interface Movie {
     vote_average: number;
     vote_count: number;
 }
+ 
+export interface SimMovies {
+  movie_id: number[];
+  poster_path: string;
+  title: string;
+  backdrop_path: string;
+
+}

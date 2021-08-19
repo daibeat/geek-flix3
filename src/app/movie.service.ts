@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { Movie, MovieResults } from './movie-config'
+import { Movie, MovieResults, SimMovies } from './movie-config'
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,12 @@ export class MovieService {
     getMovie(id: number): Observable<Movie> {
        return this.http.get <Movie>(`${this.baseUrl}/movie/${id}${this.key}&language=en-US`);
     }
+   
+    //Get similar movies from movie database
+    getSimilarMovies(movie_id : number): Observable<SimMovies> {
+       return this.http.get<SimMovies>(`${this.baseUrl}/movie/${movie_id}/similar${this.key}&language=en-US`);
 
+    }
   
+  }
 
-}
