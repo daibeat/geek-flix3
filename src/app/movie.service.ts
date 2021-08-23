@@ -34,7 +34,7 @@ export class MovieService {
    
     //Get similar movies from movie database
     getSimilarMovies(movie_id : number): Observable<SimMovies> {
-      const url = `${this.baseUrl}/movie/${movie_id}/similar${this.key}&language=en-US`;
+      const url = (`${this.baseUrl}/movie/${movie_id}/similar${this.key}&language=en-US`)
        return this.http.get<SimMovies>(url)
        .pipe(
           tap(_ => console.log(`fetched movie id=${movie_id}`)),

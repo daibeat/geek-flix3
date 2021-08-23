@@ -3,8 +3,10 @@
         <div class="form-group">
             <label for="emotion">Rate this movie</label>
             <div *ngFor="let emotion of emotionList">
-                <label>
-                    <input type="checkbox" [value]="emotion.id" (change)="onCheckboxChange($event)" />
+                <label class="checkbox-container">
+                    <input type="checkbox" id="r1" name="checkbox" [value]="emotion.id" 
+                    (change)="onCheckboxChange($event)" >  <span class="checkmark"></span>
+
                     {{emotion.name}}
                 </label>
             </div>

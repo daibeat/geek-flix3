@@ -14,7 +14,7 @@ export class MovieSimilarComponent implements OnInit {
     private route: ActivatedRoute,
     private messageService: MessageService) { }
     
-        movie!: SimMovies[];
+       public similar!: SimMovies;
 
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class MovieSimilarComponent implements OnInit {
   }
 
   getSimilarMov(movie_id: any): void {
-   /*  this.movieService.getSimilarMovies(movie_id).subscribe(
-      (simMovies: SimMovies) => {this.movie = simMovies.movie_id;}); */
+    this.movieService.getSimilarMovies(movie_id).subscribe(
+      (simMovies: SimMovies) => {this.similar = simMovies;});
   }
 }

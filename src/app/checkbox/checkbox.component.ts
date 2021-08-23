@@ -9,16 +9,26 @@ import { FormBuilder, FormGroup, FormArray, FormControl, FormsModule, Validators
 export class CheckboxComponent {
   form: FormGroup;
 
-  emotionList: any = [
+  selectedItemsList = [];
+  checkedIDs = [];
+  emotionSelect = '';
+
+  emotionList = [
     { id: 1, name: 'Happy' },
     { id: 2, name: 'Sad' },
     { id: 3, name: 'Scared' }
   ];
 
+
+
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
       emotion: this.formBuilder.array([], [Validators.required])
     })
+  }
+
+  ngOnInit(): void {
+   
   }
 
   onCheckboxChange(e: any) {
@@ -32,13 +42,24 @@ export class CheckboxComponent {
     }
   }
   
-
+/*   fetchSelectedItems() {
+    this.onCheckboxChange = this.emotionList.filter((value, index) => {
+      return value.isChecked
+    });
+  }
+  fetchCheckedIDs() {
+    this.checkedIDs = []
+    this.emotionList.forEach((value, index) => {
+      if (value.isChecked) {
+        this.checkedIDs.push(value.id);
+      }
+    });
+  } */
 
   submit() {
-    
-    
-    console.log(this.form.value);
-    
-  }
 
+
+    console.log(this.form.value);
+
+  }
 }

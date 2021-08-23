@@ -33,7 +33,8 @@ registerLocaleData(en);
     MovieDescComponent,
     MovieSimilarComponent,
     MessagesComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    
   ],
   imports: [
     BrowserModule,

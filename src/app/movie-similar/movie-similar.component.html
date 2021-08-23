@@ -2,14 +2,15 @@
     <p>Similar movies</p> 
     <div>
         <div>
-            <a routerLink="/movie-detail/movie_id" *ngFor="let movies of movie">
+            <a routerLink="/movie-detail/movie_id" *ngIf="similar">
                 <img class="card-img" 
-                src="https://image.tmdb.org/t/p/w400/poster_path{{movies.movie_id}}" 
+                src="https://image.tmdb.org/t/p/w400/poster_path{{similar.movie_id}}" 
                 alt="Card image" />
+                <img class="movie-img" src="https://image.tmdb.org/t/p/w400/{{ similar.title }}" alt="movie image" />
+
             </a>
             <div class="">
                 <h3 class="">title</h3>
-                <p class="">overview</p>
             </div>
         </div>
     </div>
