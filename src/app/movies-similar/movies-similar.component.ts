@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Movie, MovieResults, SimMovie } from '../movie-config';
+import { Component, OnInit } from '@angular/core';
+import { Movie, MovieResults } from '../movie-config';
 import { MovieService } from '../movie.service';
 import { ActivatedRoute } from '@angular/router';
 @Component({
@@ -25,4 +25,5 @@ export class MovieSimilarComponent implements OnInit {
         this.similarMovies = pagedMovies.results;
       });
   }
+
 }
