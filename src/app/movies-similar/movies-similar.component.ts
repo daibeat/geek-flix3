@@ -12,23 +12,17 @@ export class MovieSimilarComponent implements OnInit {
   constructor(private movieService: MovieService,
     private route: ActivatedRoute) { }
 
-   public similarMovies!: Movie[];
-
+  public similarMovies!: Movie[];
 
   ngOnInit(): void {
     this.getSimilarMov(566220);
   }
 
-  /* getSimilar(): void {
-    this.similar = this.movieService.getSimMovies();
-  } */
-
   getSimilarMov(movie_id: number): void {
     this.movieService.getSimilarMovies(movie_id).subscribe(
-      (pagedMovies: MovieResults) => { 
+      (pagedMovies: MovieResults) => {
         console.table(pagedMovies)
         this.similarMovies = pagedMovies.results;
       });
-
   }
 }
