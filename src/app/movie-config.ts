@@ -24,8 +24,8 @@ export interface Movie {
     movie_id: number;
 }
  
-export interface SimMovies {
-  movie_id: number;
+export interface SimMovie {
+  movie_id: number[];
   poster_path: string;
   title: string;
   backdrop_path: string;

@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SimMovies } from '../movie-config';
+import { Movie, MovieResults, SimMovie } from '../movie-config';
 import { MovieService } from '../movie.service';
 import { ActivatedRoute } from '@angular/router';
-import { MessageService } from '../message.service';
-import { Similar } from '../similar';
 @Component({
   selector: 'movies-similar',
   templateUrl: './movies-similar.component.html',
@@ -12,22 +10,25 @@ import { Similar } from '../similar';
 export class MovieSimilarComponent implements OnInit {
 
   constructor(private movieService: MovieService,
-    private route: ActivatedRoute,
-    private messageService: MessageService) { }
+    private route: ActivatedRoute) { }
 
-   public similar: Similar[] = [];
+   public similarMovies!: Movie[];
 
 
   ngOnInit(): void {
-    this.getSimilar();
+    this.getSimilarMov(566220);
   }
 
-  getSimilar(): void {
+  /* getSimilar(): void {
     this.similar = this.movieService.getSimMovies();
-  }
-
- /*  getSimilarMov(movie_id: any): void {
-    this.movieService.getSimilarMovies(movie_id).subscribe(
-      (simMovies: SimMovies) => { this.similar = simMovies});
   } */
+
+  getSimilarMov(movie_id: number): void {
+    this.movieService.getSimilarMovies(movie_id).subscribe(
+      (pagedMovies: MovieResults) => { 
+        console.table(pagedMovies)
+        this.similarMovies = pagedMovies.results;
+      });
+
+  }
 }
