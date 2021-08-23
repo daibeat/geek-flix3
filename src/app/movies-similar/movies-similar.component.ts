@@ -3,26 +3,31 @@ import { SimMovies } from '../movie-config';
 import { MovieService } from '../movie.service';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from '../message.service';
+import { Similar } from '../similar';
 @Component({
-  selector: 'movie-similar',
-  templateUrl: './movie-similar.component.html',
-  styleUrls: ['./movie-similar.component.less']
+  selector: 'movies-similar',
+  templateUrl: './movies-similar.component.html',
+  styleUrls: ['./movies-similar.component.less']
 })
 export class MovieSimilarComponent implements OnInit {
 
   constructor(private movieService: MovieService,
     private route: ActivatedRoute,
     private messageService: MessageService) { }
-    
-       public similar!: SimMovies;
+
+   public similar: Similar[] = [];
 
 
   ngOnInit(): void {
-    this.getSimilarMov(this.route.snapshot.paramMap.get('movie_id'));
+    this.getSimilar();
   }
 
-  getSimilarMov(movie_id: any): void {
-    this.movieService.getSimilarMovies(movie_id).subscribe(
-      (simMovies: SimMovies) => {this.similar = simMovies;});
+  getSimilar(): void {
+    this.similar = this.movieService.getSimMovies();
   }
+
+ /*  getSimilarMov(movie_id: any): void {
+    this.movieService.getSimilarMovies(movie_id).subscribe(
+      (simMovies: SimMovies) => { this.similar = simMovies});
+  } */
 }

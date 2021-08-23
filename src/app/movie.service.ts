@@ -5,6 +5,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Movie, MovieResults, SimMovies } from './movie-config'
 import { MessageService } from './message.service';
 import { environment } from 'src/environments/environment.prod';
+import { SIMILAR } from './similar-movies';
+import { Similar } from './similar';
 
 @Injectable({
   providedIn: 'root'
@@ -32,16 +34,19 @@ export class MovieService {
        );
     }
    
+     getSimMovies(): Similar [] {
+       return SIMILAR;
+     }
+
     //Get similar movies from movie database
-    getSimilarMovies(movie_id : number): Observable<SimMovies> {
+   /*  getSimilarMovies(movie_id : number): Observable<SimMovies> {
       const url = (`${this.baseUrl}/movie/${movie_id}/similar${this.key}&language=en-US`)
        return this.http.get<SimMovies>(url)
        .pipe(
           tap(_ => console.log(`fetched movie id=${movie_id}`)),
          catchError(this.handleError<SimMovies>(`getSimilarMovies movie_id=${movie_id}`))
        );
-
-    }
+    } */
   
 
     /**

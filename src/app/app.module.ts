@@ -8,7 +8,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieDescComponent } from './movie-desc/movie-desc.component';
 import { HttpClientModule} from '@angular/common/http';
-import { MovieSimilarComponent } from './movie-similar/movie-similar.component';
+import { MovieSimilarComponent } from './movies-similar/movies-similar.component';
 import { MessagesComponent } from './messages/messages.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';

@@ -1,0 +1,11 @@
+
+    <div>
+        <h2>Similar Movies</h2>
+        <div class="grid">
+            <a routerLink="/movie-detail/movie_id" *ngFor="let item of similar">
+                <img class="movie-img" src="https://image.tmdb.org/t/p/w400/{{item.poster_path }}" alt="movie image" />
+            </a>
+        </div>
+    </div>
+
+    
