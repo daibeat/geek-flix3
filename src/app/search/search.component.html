@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="">
+        <input 
+        class="" 
+        id="search"
+        type='search' 
+        placeholder='search movies' 
+        onChange={SearchChange} 
+        ngModel
+        name="search">
+    </div>
+    <button class="" 
+    type="submit"
+    >Search</button>
+</form>

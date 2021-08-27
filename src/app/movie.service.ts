@@ -28,15 +28,15 @@ export class MovieService {
   getMovie(id: number): Observable<Movie> {
     return this.http.get<Movie>(`${this.baseUrl}/movie/${id}${this.key}&language=en-US`);
   }
-
-  getSimMovies(): Similar[] {
-    return SIMILAR;
-  }
-
   //Get similar movies from movie database
   getSimilarMovies(movie_id: number): Observable<MovieResults> {
     return this.http.get<MovieResults>(`${this.baseUrl}/movie/${movie_id}/similar${this.key}&language=en-US`);
   }
 
+  /* getSimMovies(): Similar[] {
+    return SIMILAR;
+  } */
+
+  
 }
 

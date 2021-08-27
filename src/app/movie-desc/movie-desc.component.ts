@@ -17,7 +17,6 @@ export class MovieDescComponent implements OnInit {
   ngOnInit(): void {
     this.getMovieDesc(this.route.snapshot.paramMap.get('id'));
   }
-
   getMovieDesc(id: any): void {
     this.movieService.getMovie(id).subscribe(
       (themovie: Movie) => {

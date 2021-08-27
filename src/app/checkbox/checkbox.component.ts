@@ -1,24 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, FormsModule, Validators } from '@angular/forms';
-
 @Component({
   selector: 'checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.less']
 })
-export class CheckboxComponent {
+export class CheckboxComponent implements OnInit {
   form: FormGroup;
 
-  selectedItemsList = [];
-  checkedIDs = [];
-  emotionSelect = '';
-
   emotionList = [
-    { id: 1, name: 'Happy' },
-    { id: 2, name: 'Sad' },
-    { id: 3, name: 'Scared' }
+    { name: 'Happy' },
+    { name: 'Sad' },
+    { name: 'Scared' }
   ];
-
 
 
   constructor(private formBuilder: FormBuilder) {
@@ -28,7 +22,7 @@ export class CheckboxComponent {
   }
 
   ngOnInit(): void {
-   
+
   }
 
   onCheckboxChange(e: any) {
@@ -41,25 +35,10 @@ export class CheckboxComponent {
       emotion.removeAt(index);
     }
   }
+
+
   
-/*   fetchSelectedItems() {
-    this.onCheckboxChange = this.emotionList.filter((value, index) => {
-      return value.isChecked
-    });
-  }
-  fetchCheckedIDs() {
-    this.checkedIDs = []
-    this.emotionList.forEach((value, index) => {
-      if (value.isChecked) {
-        this.checkedIDs.push(value.id);
-      }
-    });
-  } */
-
   submit() {
-
-
     console.log(this.form.value);
-
   }
 }

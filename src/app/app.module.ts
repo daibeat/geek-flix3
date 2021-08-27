@@ -9,7 +9,6 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieDescComponent } from './movie-desc/movie-desc.component';
 import { HttpClientModule} from '@angular/common/http';
 import { MovieSimilarComponent } from './movies-similar/movies-similar.component';
-import { MessagesComponent } from './messages/messages.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
@@ -18,6 +17,10 @@ import { ReactiveFormsModule, FormsModule, FormControl } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { SearchComponent} from './search/search.component';
+import {NgxLocalStorageModule} from 'ngx-localstorage';
+import { StorageComponent } from './storage/storage.component';
+
 
 
 
@@ -32,8 +35,9 @@ registerLocaleData(en);
     MovieCardComponent,
     MovieDescComponent,
     MovieSimilarComponent,
-    MessagesComponent,
     CheckboxComponent,
+    SearchComponent,
+    StorageComponent
     
   ],
   imports: [
@@ -43,7 +47,8 @@ registerLocaleData(en);
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    NzCheckboxModule
+    NzCheckboxModule,
+    NgxLocalStorageModule.forRoot()
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

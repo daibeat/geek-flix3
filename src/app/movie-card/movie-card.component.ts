@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
 import { Movie, MovieResults} from '../movie-config';
-import { MessageService } from '../message.service';
 
 @Component({
   selector: 'movie-card',
@@ -12,7 +11,7 @@ export class MovieCardComponent implements OnInit {
   public movie!: Movie[];
 
   constructor(private movieService: MovieService,
-    private messageService: MessageService) { }
+   ) { }
 
   ngOnInit(): void {
     this.getMoviesResponse();
@@ -21,8 +20,7 @@ export class MovieCardComponent implements OnInit {
     this.movieService.getMovies().subscribe(
       (movieResults: MovieResults) => {
         this.movie = movieResults.results;
-        this.messageService.add('movie-card component:fetched movies');
       });
   }
-
+  
 }

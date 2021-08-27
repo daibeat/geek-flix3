@@ -1,16 +1,19 @@
 <div class="container">
     <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="form-group">
-            <label for="emotion">Rate this movie</label>
+            <label ng-repeat="emotion in emotionList">Rate this movie</label>
             <div *ngFor="let emotion of emotionList">
                 <label class="checkbox-container">
-                    <input type="checkbox" id="r1" name="checkbox" [value]="emotion.id" 
-                    (change)="onCheckboxChange($event)" >  <span class="checkmark"></span>
-
+                    <input type="checkbox"
+                     id="r1" 
+                     name="checkbox"
+                    [value]="emotion.name" 
+                    (change)="onCheckboxChange($event)">
+                    <span class="checkmark"></span>
                     {{emotion.name}}
                 </label>
             </div>
         </div>
-        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+        <button class="btn btn-primary" id="submit" type="submit" [disabled]="!form.valid">Submit</button>
     </form>
 </div>
